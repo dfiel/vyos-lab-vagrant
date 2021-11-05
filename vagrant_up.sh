@@ -1,9 +1,17 @@
 #!/bin/bash
 
 EXIT=0
-vagrant up rtr-1 --color <<< 'rtr-1 boot' || EXIT=$?
-vagrant up rtr-2 --color <<< 'rtr-2 boot' || EXIT=$?
-vagrant up rtr-3 --color <<< 'rtr-3 boot' || EXIT=$?
-vagrant up rtr-4 --color <<< 'rtr-4 boot' || EXIT=$?
+vagrant up AS1-RTR1 --color <<< 'AS1-RTR1 boot' || EXIT=$?
+vagrant up AS1-RTR2 --color <<< 'AS1-RTR2 boot' || EXIT=$?
+vagrant up AS1-RTR3 --color <<< 'AS1-RTR3 boot' || EXIT=$?
+vagrant up AS2-RTR1 --color <<< 'AS2-RTR1 boot' || EXIT=$?
+vagrant up AS2-RTR2 --color <<< 'AS2-RTR2 boot' || EXIT=$?
+vagrant up AS2-RTR3 --color <<< 'AS2-RTR3 boot' || EXIT=$?
+vagrant up AS3-RTR1 --color <<< 'AS3-RTR1 boot' || EXIT=$?
+vagrant up AS3-RTR2 --color <<< 'AS3-RTR2 boot' || EXIT=$?
+vagrant up AS3-RTR3 --color <<< 'AS3-RTR3 boot' || EXIT=$?
+vagrant up AS4-RTR1 --color <<< 'AS4-RTR1 boot' || EXIT=$?
+vagrant up AS4-RTR2 --color <<< 'AS4-RTR2 boot' || EXIT=$?
+vagrant up AS4-RTR3 --color <<< 'AS4-RTR3 boot' || EXIT=$?
 echo $EXIT
 exit $EXIT
