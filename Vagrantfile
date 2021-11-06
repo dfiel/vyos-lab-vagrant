@@ -43,6 +43,16 @@ Vagrant.configure("2") do |config|
             :libvirt__tunnel_port => '9002',
             :libvirt__iface_name => '1R1-1R2',
             auto_config: false
+    
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:37",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '8019',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '9019',
+            :libvirt__iface_name => '1R1-1R3',
+            auto_config: false
 
   config.vm.boot_timeout = 400
 
@@ -138,6 +148,16 @@ end
             :libvirt__tunnel_port => '9006',
             :libvirt__iface_name => '1R3-3R3',
             auto_config: false
+    
+          device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:38",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9019',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8019',
+            :libvirt__iface_name => '1R3-1R1',
+            auto_config: false
 
   config.vm.boot_timeout = 400
 
@@ -232,6 +252,16 @@ end
             :libvirt__tunnel_port => '9010',
             :libvirt__iface_name => '2R2-4R3',
             auto_config: false
+    
+          device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:39",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '8020',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '9020',
+            :libvirt__iface_name => '2R2-2R3',
+            auto_config: false
 
   config.vm.boot_timeout = 400
 
@@ -279,6 +309,16 @@ end
             :libvirt__tunnel_port => '9011',
             :libvirt__iface_name => '2R3-2C',
             auto_config: false
+    
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:40",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9020',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8020',
+            :libvirt__iface_name => '2R3-2R2',
+            auto_config: false
 
   config.vm.boot_timeout = 400
 
@@ -315,6 +355,16 @@ end
             :libvirt__tunnel_ip => '127.0.0.1',
             :libvirt__tunnel_port => '9013',
             :libvirt__iface_name => '3R1-3R3',
+            auto_config: false
+    
+       device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:41",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '8021',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '9021',
+            :libvirt__iface_name => '3R1-3R2',
             auto_config: false
 
   config.vm.boot_timeout = 400
@@ -362,6 +412,16 @@ end
             :libvirt__tunnel_ip => '127.0.0.1',
             :libvirt__tunnel_port => '9015',
             :libvirt__iface_name => '3R2-3C',
+            auto_config: false
+    
+       device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:42",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9021',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8021',
+            :libvirt__iface_name => '3R2-3R1',
             auto_config: false
 
   config.vm.boot_timeout = 400
@@ -446,6 +506,16 @@ end
             :libvirt__tunnel_ip => '127.0.0.1',
             :libvirt__tunnel_port => '9016',
             :libvirt__iface_name => '4R1-4R2',
+            auto_config: false
+    
+       device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:43",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '8022',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '9022',
+            :libvirt__iface_name => '4R1-4R3',
             auto_config: false
 
   config.vm.boot_timeout = 400
@@ -577,6 +647,16 @@ end
             :libvirt__tunnel_ip => '127.0.0.1',
             :libvirt__tunnel_port => '8010',
             :libvirt__iface_name => '4R3-2R2',
+            auto_config: false
+    
+       device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:44",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9022',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8022',
+            :libvirt__iface_name => '4R3-4R1',
             auto_config: false
 
   config.vm.boot_timeout = 400
