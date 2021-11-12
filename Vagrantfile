@@ -12,6 +12,10 @@ Vagrant.configure("2") do |config|
   #    ./.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "./helper_scripts/empty_playbook.yml"
+    ansible.groups = {
+      "vyos" => ["AS1-RTR1", "AS1-RTR2", "AS1-RTR3", "AS2-RTR1", "AS2-RTR2", "AS2-RTR3", "AS3-RTR1", "AS3-RTR2", "AS3-RTR3", "AS4-RTR1", "AS4-RTR2", "AS4-RTR3"],
+      "debian" => ["AS1-CLIENT", "AS2-CLIENT", "AS3-CLIENT", "AS4-CLIENT"]
+    }
   end
 
   config.vm.define "AS1-RTR1" do |device|
