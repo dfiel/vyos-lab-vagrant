@@ -237,9 +237,9 @@ end
             :mac => "a0:00:00:00:00:14",
             :libvirt__tunnel_type => 'udp',
             :libvirt__tunnel_local_ip => '127.0.0.1',
-            :libvirt__tunnel_local_port => '8009',
+            :libvirt__tunnel_local_port => '6009',
             :libvirt__tunnel_ip => '127.0.0.1',
-            :libvirt__tunnel_port => '9009',
+            :libvirt__tunnel_port => '7009',
             :libvirt__iface_name => '2R2-3R2',
             auto_config: false
     
@@ -388,9 +388,9 @@ end
             :mac => "a0:00:00:00:00:22",
             :libvirt__tunnel_type => 'udp',
             :libvirt__tunnel_local_ip => '127.0.0.1',
-            :libvirt__tunnel_local_port => '9009',
+            :libvirt__tunnel_local_port => '7009',
             :libvirt__tunnel_ip => '127.0.0.1',
-            :libvirt__tunnel_port => '8009',
+            :libvirt__tunnel_port => '6009',
             :libvirt__iface_name => '3R2-2R2',
             auto_config: false
 
