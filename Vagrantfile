@@ -12,6 +12,10 @@ Vagrant.configure("2") do |config|
   #    ./.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "./helper_scripts/empty_playbook.yml"
+    ansible.groups = {
+      "vyos" => ["AS1-RTR1", "AS1-RTR2", "AS1-RTR3", "AS2-RTR1", "AS2-RTR2", "AS2-RTR3", "AS3-RTR1", "AS3-RTR2", "AS3-RTR3", "AS4-RTR1", "AS4-RTR2", "AS4-RTR3"],
+      "debian" => ["AS1-CLIENT", "AS2-CLIENT", "AS3-CLIENT", "AS4-CLIENT"]
+    }
   end
 
   config.vm.define "AS1-RTR1" do |device|
@@ -164,6 +168,32 @@ end
   config.ssh.forward_agent = true
   config.ssh.guest_port = 22
   config.ssh.insert_key = false
+end
+  
+  config.vm.define "AS1-CLIENT" do |device|
+    device.vm.box = "debian/bullseye64"
+
+    device.vm.provider :libvirt do |v|
+      v.memory = 1024
+      v.nic_model_type = "e1000"
+    end
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
+    # NETWORK INTERFACES
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:09",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9004',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8004',
+            :libvirt__iface_name => '1C-1R2',
+            auto_config: false
+
+  config.vm.boot_timeout = 400
+
+  config.ssh.forward_agent = true
+  config.ssh.guest_port = 22
 end
 
   config.vm.define "AS2-RTR1" do |device|
@@ -327,6 +357,32 @@ end
   config.ssh.insert_key = false
 end
   
+  config.vm.define "AS2-CLIENT" do |device|
+    device.vm.box = "debian/bullseye64"
+
+    device.vm.provider :libvirt do |v|
+      v.memory = 1024
+      v.nic_model_type = "e1000"
+    end
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
+    # NETWORK INTERFACES
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:19",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9011',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8011',
+            :libvirt__iface_name => '2C-2R3',
+            auto_config: false
+
+  config.vm.boot_timeout = 400
+
+  config.ssh.forward_agent = true
+  config.ssh.guest_port = 22
+end
+  
   config.vm.define "AS3-RTR1" do |device|
     device.vm.box = "higebu/vyos"
 
@@ -476,6 +532,32 @@ end
   config.ssh.forward_agent = true
   config.ssh.guest_port = 22
   config.ssh.insert_key = false
+end
+  
+  config.vm.define "AS3-CLIENT" do |device|
+    device.vm.box = "debian/bullseye64"
+
+    device.vm.provider :libvirt do |v|
+      v.memory = 1024
+      v.nic_model_type = "e1000"
+    end
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
+    # NETWORK INTERFACES
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:28",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9015',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8015',
+            :libvirt__iface_name => '3C-3R2',
+            auto_config: false
+
+  config.vm.boot_timeout = 400
+
+  config.ssh.forward_agent = true
+  config.ssh.guest_port = 22
 end
   
   config.vm.define "AS4-RTR1" do |device|
@@ -664,6 +746,32 @@ end
   config.ssh.forward_agent = true
   config.ssh.guest_port = 22
   config.ssh.insert_key = false
+end
+  
+  config.vm.define "AS4-CLIENT" do |device|
+    device.vm.box = "debian/bullseye64"
+
+    device.vm.provider :libvirt do |v|
+      v.memory = 1024
+      v.nic_model_type = "e1000"
+    end
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+
+    # NETWORK INTERFACES
+      device.vm.network "private_network",
+            :mac => "a0:00:00:00:00:36",
+            :libvirt__tunnel_type => 'udp',
+            :libvirt__tunnel_local_ip => '127.0.0.1',
+            :libvirt__tunnel_local_port => '9018',
+            :libvirt__tunnel_ip => '127.0.0.1',
+            :libvirt__tunnel_port => '8018',
+            :libvirt__iface_name => '4C-4R2',
+            auto_config: false
+
+  config.vm.boot_timeout = 400
+
+  config.ssh.forward_agent = true
+  config.ssh.guest_port = 22
 end
 
 end
